@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mz0178123 | Portfolio</title>
+    <title>Sean Huang | Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -13,6 +13,11 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
+        /* 讓頁面滾動時有平滑的動畫效果 */
+        html {
+            scroll-behavior: smooth;
         }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -29,7 +34,7 @@
         .container {
             background-color: #f8fafc;
             width: 100%;
-            max-width: 1100px;
+            max-width: 1140px;
             border-radius: 24px;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
             overflow: hidden;
@@ -45,6 +50,10 @@
             justify-content: space-between;
             align-items: center;
             border-bottom: 1px solid #e2e8f0;
+            /* 讓導覽列固定在卡片最上方，方便下滑時隨時點擊 */
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
         .logo {
             font-size: 18px;
@@ -53,7 +62,7 @@
         }
         .nav-links {
             display: flex;
-            gap: 20px;
+            gap: 25px;
             list-style: none;
         }
         .nav-links a {
@@ -70,7 +79,10 @@
             display: flex;
             gap: 15px;
             color: #64748b;
+        }
+        .nav-icons i {
             cursor: pointer;
+            padding: 5px;
         }
         .nav-icons i:hover {
             color: #0f172a;
@@ -79,9 +91,9 @@
         /* 主要內容區域（左右分欄） */
         .main-content {
             display: grid;
-            grid-template-columns: 1fr 2fr;
-            padding: 50px;
-            gap: 50px;
+            grid-template-columns: 280px 1fr;
+            padding: 45px;
+            gap: 45px;
         }
 
         /* ================= 左側欄位 ================= */
@@ -90,19 +102,26 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
+            border-right: 1px solid #e2e8f0;
+            padding-right: 25px;
         }
         .avatar-container {
             position: relative;
             margin-bottom: 25px;
         }
+        
         .avatar {
-            width: 160px;
-            height: 160px;
+            width: 160px;          
+            height: 160px;         
             border-radius: 50%;
-            object-fit: cover;
             border: 4px solid #ffffff;
             box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+            background-image: url('avatar.jpg'); 
+            background-repeat: no-repeat;
+            background-size: cover; 
+            background-position: center 20%; 
         }
+        
         .avatar-badge {
             position: absolute;
             bottom: 5px;
@@ -118,33 +137,27 @@
             font-size: 16px;
         }
         .name {
-            font-size: 32px;
+            font-size: 30px;
             font-weight: 800;
             color: #0f172a;
             margin-bottom: 5px;
         }
-        .pronouns {
-            font-size: 13px;
-            color: #94a3b8;
-            margin-bottom: 15px;
-        }
         .title {
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 600;
             color: #4f46e5;
             margin-bottom: 5px;
         }
         .company {
-            font-size: 14px;
+            font-size: 13px;
             color: #64748b;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
-        /* 社群圖示列 */
+        
         .social-links {
             display: flex;
             gap: 12px;
-            flex-wrap: wrap;
-            justify-content: center;
+            margin-bottom: 30px;
         }
         .social-icon {
             width: 40px;
@@ -164,111 +177,248 @@
         .social-icon:hover {
             color: #4f46e5;
             transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+
+        /* 左側側邊資訊 */
+        .sidebar-section {
+            width: 100%;
+            text-align: left;
+            margin-bottom: 25px;
+        }
+        .sidebar-title {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #94a3b8;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 5px;
+        }
+        .sidebar-item {
+            font-size: 13px;
+            color: #475569;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+        .sidebar-item strong {
+            color: #0f172a;
         }
 
         /* ================= 右側欄位 ================= */
         .right-column {
             display: flex;
             flex-direction: column;
-            gap: 40px;
+            gap: 35px;
+        }
+        /* 微調捲動到指定區塊時的上方留白，避免文字被固定的導覽列擋到 */
+        .scroll-block {
+            scroll-margin-top: 90px; 
         }
         .section-title {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 700;
             color: #0f172a;
             display: flex;
             align-items: center;
             gap: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         .section-title i {
             color: #4f46e5;
             background: #eef2ff;
-            padding: 8px;
-            border-radius: 8px;
-            font-size: 14px;
-        }
-        .summary-text {
-            color: #475569;
-            font-size: 15px;
-            line-height: 1.7;
-            margin-bottom: 25px;
-        }
-        /* 下載按鈕 */
-        .cv-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background-color: #3b82f6;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            width: fit-content;
-            box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
-            transition: all 0.2s;
-        }
-        .cv-button:hover {
-            background-color: #2563eb;
-            transform: translateY(-1px);
-        }
-
-        /* 學歷卡片群組 */
-        .education-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 15px;
-        }
-        .edu-card {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
-        }
-        .edu-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background-color: #4f46e5;
-            color: white;
+            padding: 6px;
+            border-radius: 6px;
+            font-size: 13px;
+            width: 26px;
+            height: 26px;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 14px;
         }
-        .edu-degree {
-            font-size: 14px;
-            font-weight: 700;
-            color: #0f172a;
-            line-height: 1.4;
-        }
-        .edu-school {
-            font-size: 13px;
-            color: #64748b;
+        .summary-text {
+            color: #475569;
+            font-size: 14.5px;
+            line-height: 1.7;
+            margin-bottom: 12px;
         }
 
-        /* RWD 響應式排版：手機模式自動改為單欄 */
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
+        /* 經歷履歷條樣式 */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .timeline-item {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 20px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01);
+        }
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 10px;
+        }
+        .role-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #0f172a;
+        }
+        .comp-name {
+            font-size: 13px;
+            color: #4f46e5;
+            font-weight: 600;
+            margin-top: 2px;
+        }
+        .duration {
+            font-size: 12px;
+            background-color: #f1f5f9;
+            color: #64748b;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        .timeline-body {
+            font-size: 13px;
+            color: #475569;
+            line-height: 1.6;
+        }
+        .timeline-body ul {
+            padding-left: 16px;
+        }
+
+        /* 技能區塊樣式 */
+        .skills-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .skill-group {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 18px;
+        }
+        .skill-group-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #334155;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .skill-group-title i {
+            color: #64748b;
+            font-size: 12px;
+        }
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .skill-tag {
+            font-size: 12px;
+            background-color: #f8fafc;
+            color: #475569;
+            padding: 5px 10px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* ================= 🌓 深色模式樣式設定 ================= */
+        body.dark-mode .container {
+            background-color: #0f172a; 
+            color: #f1f5f9;
+        }
+        body.dark-mode .navbar {
+            background-color: #1e293b;
+            border-bottom: 1px solid #334155;
+        }
+        body.dark-mode .logo,
+        body.dark-mode .name,
+        body.dark-mode .section-title,
+        body.dark-mode .role-title,
+        body.dark-mode .sidebar-item strong,
+        body.dark-mode .skill-group-title {
+            color: #f8fafc;
+        }
+        body.dark-mode .nav-links a,
+        body.dark-mode .nav-icons,
+        body.dark-mode .company,
+        body.dark-mode .sidebar-title {
+            color: #94a3b8;
+        }
+        body.dark-mode .nav-links a:hover,
+        body.dark-mode .nav-icons i:hover {
+            color: #f8fafc;
+        }
+        body.dark-mode .left-column {
+            border-right: 1px solid #334155;
+        }
+        body.dark-mode .sidebar-title {
+            border-bottom: 1px solid #334155;
+        }
+        body.dark-mode .sidebar-item,
+        body.dark-mode .summary-text,
+        body.dark-mode .timeline-body {
+            color: #cbd5e1;
+        }
+        body.dark-mode .timeline-item,
+        body.dark-mode .skill-group {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+        }
+        body.dark-mode .social-icon {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            color: #94a3b8;
+        }
+        body.dark-mode .social-icon:hover {
+            color: #818cf8;
+        }
+        body.dark-mode .duration {
+            background-color: #334155;
+            color: #cbd5e1;
+        }
+        body.dark-mode .skill-tag {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            color: #cbd5e1;
+        }
+        body.dark-mode .section-title i {
+            background: #312e81;
+            color: #818cf8;
+        }
+        body.dark-mode .avatar {
+            border: 4px solid #1e293b;
+        }
+        body.dark-mode .avatar-badge {
+            background: #1e293b;
+        }
+
+        /* RWD 響應式排版 */
+        @media (max-width: 850px) {
             .main-content {
                 grid-template-columns: 1fr;
                 padding: 30px 20px;
-                gap: 40px;
+                gap: 35px;
+            }
+            .left-column {
+                border-right: none;
+                padding-right: 0;
+                border-bottom: 1px solid #e2e8f0;
+                padding-bottom: 30px;
+            }
+            body.dark-mode .left-column {
+                border-bottom: 1px solid #334155;
+            }
+            .skills-container {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -277,19 +427,14 @@
 
     <div class="container">
         <header class="navbar">
-            <div class="logo">Your Name</div>
+            <div class="logo">About Me</div>
             <ul class="nav-links">
-                <li><a href="#">Bio</a></li>
-                <li><a href="#">Papers</a></li>
-                <li><a href="#">Talks</a></li>
-                <li><a href="#">News</a></li>
-                <li><a href="#">Experience</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Teaching</a></li>
+                <li><a href="#profile">Profile</a></li>
+                <li><a href="#experience">Work Experience</a></li>
+                <li><a href="#skills">Skills & Tools</a></li>
             </ul>
             <div class="nav-icons">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <i class="fa-solid fa-moon"></i>
+                <i class="fa-solid fa-moon" id="theme-toggle"></i>
             </div>
         </header>
 
@@ -297,61 +442,141 @@
             
             <section class="left-column">
                 <div class="avatar-container">
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&auto=format&fit=crop&q=80" alt="Avatar" class="avatar">
-                    <div class="avatar-badge">🚀</div>
+                    <div class="avatar"></div>
+                    <div class="avatar-badge">👨‍💻</div>
                 </div>
                 
-                <h1 class="name">Alex Johnson</h1>
-                <div class="pronouns">(he/him)</div>
-                <div class="title">Senior AI Research Scientist</div>
-                <div class="company">Meta AI</div>
+                <h1 class="name">Sean Huang</h1>
+                <div class="title">Sr. Hardware Verification Engineer</div>
+                <div class="company">Moxa</div>
                 
                 <div class="social-links">
-                    <a href="mailto:your-email@example.com" class="social-icon"><i class="fa-solid fa-envelope"></i></a>
-                    <a href="#" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
-                    <a href="https://github.com/mz0178123" target="_blank" class="social-icon"><i class="fa-brands fa-github"></i></a>
-                    <a href="#" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="#" class="social-icon"><i class="fa-brands fa-google-scholar"></i></a>
-                    <a href="#" class="social-icon"><i class="fa-solid fa-id-card"></i></a>
+                    <a href="mailto:mz0178123@gmail.com" class="social-icon" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://github.com/mz0178123" target="_blank" class="social-icon" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/sean-huang-644062202" target="_blank" class="social-icon" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="sidebar-title">Education</div>
+                    <div class="sidebar-item">
+                        <strong>National Formosa University</strong><br>
+                        Bachelor of Aeronautical Engineering<br>
+                        <span style="font-size: 12px; color: #64748b;">Aviation Electronics Group (2017-2021)</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="sidebar-title">Languages</div>
+                    <div class="sidebar-item"><strong>Mandarin:</strong> Native</div>
+                    <div class="sidebar-item"><strong>English:</strong> CEFR B1</div>
                 </div>
             </section>
 
             <section class="right-column">
                 
-                <div class="summary-section">
-                    <h2 class="section-title">
-                        <i class="fa-regular fa-id-card"></i> Professional Summary
-                    </h2>
+                <div class="summary-section scroll-block" id="profile">
+                    <h2 class="section-title"><i class="fa-regular fa-user"></i> Profile</h2>
                     <p class="summary-text">
-                        Alex Johnson is a Senior AI Research Scientist at Meta AI, where he leads groundbreaking work on large language models and multimodal systems. His research has been published in top conferences like NeurIPS and ICML, with over 10,000 citations. Alex is passionate about pushing the boundaries of AI while ensuring ethical development. Outside of work, he enjoys hiking in the Rockies, building custom PCs, and mentoring the next generation of AI talent.
+                        I am a Senior Hardware Engineer specializing in V&V with extensive expertise and practical experience. My career has been dedicated to enhancing testing accuracy and efficiency while optimizing and verifying a wide range of signal interfaces to ensure products meet the standards.
                     </p>
-                    <a href="#" class="cv-button">
-                        <i class="fa-regular fa-file-pdf"></i> Download CV
-                    </a>
+                    <p class="summary-text" style="color: #64748b; font-size: 13.5px; margin-top: 8px;">
+                        🏃‍♂️ Outside of work, I am passionate about sports and serve as the president of my company's tennis club, regularly leading members in matches and training. Additionally, I enjoy running marathons, swimming, and biking to push my limits. I also love traveling to explore new cultures and gain fresh perspectives.
+                    </p>
                 </div>
 
-                <div class="education-section">
-                    <h2 class="section-title">
-                        <i class="fa-solid fa-graduation-cap"></i> Education
-                    </h2>
-                    <div class="education-grid">
+                <div class="experience-section scroll-block" id="experience">
+                    <h2 class="section-title"><i class="fa-solid fa-briefcase"></i> Work Experience</h2>
+                    <div class="timeline">
                         
-                        <div class="edu-card">
-                            <div class="edu-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                            <div class="edu-degree">PhD Computer Science (AI Focus)</div>
-                            <div class="edu-school">Stanford University</div>
+                        <div class="timeline-item">
+                            <div class="timeline-header">
+                                <div>
+                                    <div class="role-title">Sr. Hardware Verification Engineer</div>
+                                    <div class="comp-name">Moxa</div>
+                                </div>
+                                <span class="duration">2024 - Present</span>
+                            </div>
+                            <div class="timeline-body">
+                                <ul>
+                                    <li>Extensive experience in test fixture development and validation across various products (IPC, switch, router, and serial converter).</li>
+                                    <li>Highly skilled in oscilloscope operation, with particular proficiency in Keysight and Tektronix instruments.</li>
+                                    <li>Experienced in VNA-based signal integrity (SI) testing, including TDR, Delta-L 3.0/4.0, and S-parameter measurements.</li>
+                                </ul>
+                            </div>
                         </div>
 
-                        <div class="edu-card">
-                            <div class="edu-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                            <div class="edu-degree">MS Computer Science</div>
-                            <div class="edu-school">Carnegie Mellon University</div>
+                        <div class="timeline-item">
+                            <div class="timeline-header">
+                                <div>
+                                    <div class="role-title">Hardware Verification Engineer</div>
+                                    <div class="comp-name">Moxa</div>
+                                </div>
+                                <span class="duration">2021 - 2024</span>
+                            </div>
+                            <div class="timeline-body">
+                                <ul>
+                                    <li>Experienced in high-speed and low-speed signal measurement techniques using oscilloscopes and VNA.</li>
+                                    <li>Understood product architecture to design focused and comprehensive test plans.</li>
+                                    <li>Applied hands-on experience to optimize existing SOPs and establish missing or product-specific test items.</li>
+                                </ul>
+                            </div>
                         </div>
 
-                        <div class="edu-card">
-                            <div class="edu-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                            <div class="edu-degree">BS Computer Science</div>
-                            <div class="edu-school">MIT</div>
+                        <div class="timeline-item">
+                            <div class="timeline-header">
+                                <div>
+                                    <div class="role-title">Production Management (Avionics Engineer)</div>
+                                    <div class="comp-name">Aerospace Industrial Development Corporation (AIDC)</div>
+                                </div>
+                                <span class="duration">2021 - 2021</span>
+                            </div>
+                            <div class="timeline-body">
+                                <ul>
+                                    <li>Joined the Air Force "Phoenix Rising" project (collaboration with Lockheed Martin) to upgrade 140 F-16A/B fighters to the F-16V standard in Taichung.</li>
+                                    <li>Initially designated as an Avionics Engineer, later assigned to Production Management utilizing English proficiency for high-level coordination and documentation.</li>
+                                    <li>Responsible for work order distribution, material control, and overall production activities for the F-16V program.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="skills-section scroll-block" id="skills">
+                    <h2 class="section-title"><i class="fa-solid fa-gears"></i> Skills & Tools</h2>
+                    <div class="skills-container">
+                        
+                        <div class="skill-group">
+                            <div class="skill-group-title"><i class="fa-solid fa-code"></i> Software & Tools</div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Cadence OrCAD Capture / CIS</span>
+                                <span class="skill-tag">Cadence Allegro Viewer</span>
+                                <span class="skill-tag">LTspice</span>
+                                <span class="skill-tag">PSpice for TI</span>
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">SCPI</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-group">
+                            <div class="skill-group-title"><i class="fa-solid fa-screwdriver-wrench"></i> Measurement Equipment</div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Keysight/Tektronix Oscilloscopes (High-BW)</span>
+                                <span class="skill-tag">Keysight Vector Network Analyzers (VNA)</span>
+                                <span class="skill-tag">Sifos PowerSync Analyzer & PoE Test</span>
+                                <span class="skill-tag">IXIA / XENA / Spirent Traffic Generator</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-group" style="grid-column: span 2;">
+                            <div class="skill-group-title"><i class="fa-solid fa-microchip"></i> Technical Skills & Compliance</div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Low Speed Waveform Test (I²C, SPI, MII series...)</span>
+                                <span class="skill-tag">High Speed Waveform Test (eMMC, SDIO, SDR/DDR SDRAM...)</span>
+                                <span class="skill-tag">Standard Compliance Test (Ethernet RFC2544/2889, USB2.0, USB3.2...)</span>
+                                <span class="skill-tag">Power Test (Power sequence, DC ripple, Inrush current...)</span>
+                                <span class="skill-tag">Signal Integrity (SI: S-Parameter, TDR, Delta-L 3.0/4.0)</span>
+                            </div>
                         </div>
 
                     </div>
@@ -361,5 +586,20 @@
         </main>
     </div>
 
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                themeToggle.classList.remove('fa-moon');
+                themeToggle.classList.add('fa-sun');
+            } else {
+                themeToggle.classList.remove('fa-sun');
+                themeToggle.classList.add('fa-moon');
+            }
+        });
+    </script>
 </body>
 </html>
