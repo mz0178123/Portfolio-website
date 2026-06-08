@@ -96,3 +96,270 @@
             margin-bottom: 25px;
         }
         .avatar {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #ffffff;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+        }
+        .avatar-badge {
+            position: absolute;
+            bottom: 5px;
+            right: 10px;
+            background: #fff;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-size: 16px;
+        }
+        .name {
+            font-size: 32px;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 5px;
+        }
+        .pronouns {
+            font-size: 13px;
+            color: #94a3b8;
+            margin-bottom: 15px;
+        }
+        .title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #4f46e5;
+            margin-bottom: 5px;
+        }
+        .company {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 30px;
+        }
+        /* 社群圖示列 */
+        .social-links {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #ffffff;
+            color: #64748b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-size: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s;
+        }
+        .social-icon:hover {
+            color: #4f46e5;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+
+        /* ================= 右側欄位 ================= */
+        .right-column {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .section-title i {
+            color: #4f46e5;
+            background: #eef2ff;
+            padding: 8px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        .summary-text {
+            color: #475569;
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+        /* 下載按鈕 */
+        .cv-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #3b82f6;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            width: fit-content;
+            box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+            transition: all 0.2s;
+        }
+        .cv-button:hover {
+            background-color: #2563eb;
+            transform: translateY(-1px);
+        }
+
+        /* 學歷卡片群組 */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+        .edu-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+        }
+        .edu-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: #4f46e5;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+        }
+        .edu-degree {
+            font-size: 14px;
+            font-weight: 700;
+            color: #0f172a;
+            line-height: 1.4;
+        }
+        .edu-school {
+            font-size: 13px;
+            color: #64748b;
+        }
+
+        /* RWD 響應式排版：手機模式自動改為單欄 */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .main-content {
+                grid-template-columns: 1fr;
+                padding: 30px 20px;
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="navbar">
+            <div class="logo">Your Name</div>
+            <ul class="nav-links">
+                <li><a href="#">Bio</a></li>
+                <li><a href="#">Papers</a></li>
+                <li><a href="#">Talks</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Experience</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Teaching</a></li>
+            </ul>
+            <div class="nav-icons">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa-solid fa-moon"></i>
+            </div>
+        </header>
+
+        <main class="main-content">
+            
+            <section class="left-column">
+                <div class="avatar-container">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&auto=format&fit=crop&q=80" alt="Avatar" class="avatar">
+                    <div class="avatar-badge">🚀</div>
+                </div>
+                
+                <h1 class="name">Alex Johnson</h1>
+                <div class="pronouns">(he/him)</div>
+                <div class="title">Senior AI Research Scientist</div>
+                <div class="company">Meta AI</div>
+                
+                <div class="social-links">
+                    <a href="mailto:your-email@example.com" class="social-icon"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="#" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://github.com/mz0178123" target="_blank" class="social-icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon"><i class="fa-brands fa-google-scholar"></i></a>
+                    <a href="#" class="social-icon"><i class="fa-solid fa-id-card"></i></a>
+                </div>
+            </section>
+
+            <section class="right-column">
+                
+                <div class="summary-section">
+                    <h2 class="section-title">
+                        <i class="fa-regular fa-id-card"></i> Professional Summary
+                    </h2>
+                    <p class="summary-text">
+                        Alex Johnson is a Senior AI Research Scientist at Meta AI, where he leads groundbreaking work on large language models and multimodal systems. His research has been published in top conferences like NeurIPS and ICML, with over 10,000 citations. Alex is passionate about pushing the boundaries of AI while ensuring ethical development. Outside of work, he enjoys hiking in the Rockies, building custom PCs, and mentoring the next generation of AI talent.
+                    </p>
+                    <a href="#" class="cv-button">
+                        <i class="fa-regular fa-file-pdf"></i> Download CV
+                    </a>
+                </div>
+
+                <div class="education-section">
+                    <h2 class="section-title">
+                        <i class="fa-solid fa-graduation-cap"></i> Education
+                    </h2>
+                    <div class="education-grid">
+                        
+                        <div class="edu-card">
+                            <div class="edu-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                            <div class="edu-degree">PhD Computer Science (AI Focus)</div>
+                            <div class="edu-school">Stanford University</div>
+                        </div>
+
+                        <div class="edu-card">
+                            <div class="edu-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                            <div class="edu-degree">MS Computer Science</div>
+                            <div class="edu-school">Carnegie Mellon University</div>
+                        </div>
+
+                        <div class="edu-card">
+                            <div class="edu-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                            <div class="edu-degree">BS Computer Science</div>
+                            <div class="edu-school">MIT</div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>
