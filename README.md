@@ -3,7 +3,7 @@
 Welcome to my personal portfolio website! This project is a modern, responsive, interactive resume and profile showcase designed to highlight my professional background as a **Senior Hardware Verification Engineer**, featuring my technical skills, work experience, and personal interests.
 
 ## 🚀 Live Demo
-👉 **[Click here to view my Live Portfolio Website](https://mz0178123.github.io/Portfolio-website/)**
+👉 **[Click here to view my Live Portfolio Website](https://mz0178123.github.io/portfolio-website/)**
 
 ---
 
